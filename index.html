@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Space Simulator - Final Submission</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #000; font-family: 'Courier New', Courier, monospace; }
+        
+        /* UI Layer */
+        #ui-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; user-select: none; }
+        
+        /* Stats Box */
+        #stats { position: absolute; top: 20px; left: 20px; color: #00ffcc; text-shadow: 0 0 5px #00ffcc; }
+        .bar-container { width: 200px; height: 10px; border: 1px solid #00ffcc; margin-top: 5px; background: rgba(0, 255, 204, 0.1); }
+        #speed-bar { width: 0%; height: 100%; background-color: #00ffcc; transition: width 0.1s; }
+        
+        /* Controls Hint */
+        #controls-hint { position: absolute; bottom: 20px; right: 20px; color: white; opacity: 0.7; text-align: right; }
+        .key { border: 1px solid white; padding: 2px 6px; border-radius: 4px; font-weight: bold; }
+
+        #vignette {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; /* Để chuột bấm xuyên qua */
+    /* Gradient tỏa từ tâm: Trong suốt ở giữa -> Đen mờ ở 4 góc */
+    background: radial-gradient(circle, rgba(0,0,0,0) 50%, rgba(0,0,0,0.6) 100%);
+    z-index: 10; /* Nằm đè lên canvas */
+}
+    </style>
+</head>
+<body>
+    <div id="ui-layer">
+        <div id="stats">
+            <div>SPEED: <span id="speed-val">0</span> C</div>
+            <div class="bar-container"><div id="speed-bar"></div></div>
+        </div>
+        <div id="controls-hint">HOLD <span class="key">MOUSE LEFT</span> TO WARP</div>
+    </div>
+
+    <script type="module" src="./main.js"></script>
+</body>
+</html>
